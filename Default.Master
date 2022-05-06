@@ -1,0 +1,125 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="Default.master.cs" Inherits="ValueOrders.Default" %>
+
+<!DOCTYPE html>
+
+<html>
+<head runat="server">
+    <title></title>
+
+    <style type="text/css">
+.stock
+{
+background-color:green;
+border-radius: 0% 50% 50% 0% / 0% / 50% 50% 0%;
+position: relative;
+bottom: 20px;
+left:1px;
+text-align:left;
+color:white;
+float:left
+}
+</style>
+
+    <asp:ContentPlaceHolder ID="head" runat="server">
+    </asp:ContentPlaceHolder>
+    <style type="text/css">
+        .auto-style4 {
+            width: 216px;
+        }
+        .auto-style7 {
+            width: 1196px;
+            margin-right: 126px;
+        }
+        .auto-style8 {
+            margin-left: 0px;
+        }
+        .auto-style9 {
+            width: 720px;
+            height: 50px;
+        }
+        .auto-style11 {
+            height: 50px;
+            width: 455px;
+        }
+        .auto-style12 {
+            width: 216px;
+            height: 55px;
+        }
+        .auto-style13 {
+            width: 1248px;
+            height: 50px;
+        }
+        .auto-style14 {
+            width: 152px;
+            height: 50px;
+        }
+        </style>
+</head>
+<body>
+    <form id="form1" runat="server">
+        <div>
+            <table class="auto-style7">
+                <tr>
+                    <td class="auto-style11">
+                        <asp:Image ID="Image1" runat="server" ImageUrl="~/placeorder.jpg" Width="300px" /></td>
+
+                     <td class="auto-style13">
+                         <asp:Label ID="Label1" runat="server" Text="Craze O'Shop" Font-Bold="True" align= "center" Font-Names="Algerian" ForeColor="Red" Font-Size="XX-Large"></asp:Label>
+                         <br /><b>You will receive your order within 24 hours</b>
+                     </td>
+                     <td class="auto-style14">
+                         <asp:ImageButton ID="IBFacebook" runat="server" Height="61px" Width="80px" ImageUrl="~/facebook.png" CssClass="auto-style8" onclientclick = "window.open('https://www.facebook.com/Stock-Markets-100378071499269/?notif_id=1639925325074658&notif_t=page_user_activity&ref=notif','_blank');" />                              
+                      <td class="auto-style9">
+                         <asp:ImageButton ID="IBGoToCart" runat="server" Height="61px" Width="116px" ImageUrl="~/gotocart.png" CssClass="auto-style8" OnClick="IBGoToCart_Click" /> 
+                          <asp:Label ID="lblItemsInCart" runat="server" Text="0" Font-Bold="True" ForeColor="Red"></asp:Label>
+                         <div align="center">
+                             <asp:HyperLink ID="HyperLink1" runat="server" NavigateUrl="~/UserProductList.aspx" BackColor ="#009900" BorderColor= "White" ForeColor= "white" Font-Bold ="true">Check status of existing orders</asp:HyperLink>
+                         </div>                          
+                          </tr>
+                <tr>
+                    <td colspan="3" class="auto-style12">
+                        <asp:Menu ID="Menu1" runat="server" OnMenuItemClick="Menu1_MenuItemClick" Orientation="Horizontal" Width="1150px" BorderColor="#00CC00" BorderStyle="Outset">
+                            <DynamicHoverStyle ForeColor="Red" />
+                            <Items>
+                                <asp:MenuItem Text="Home" Value="Home"></asp:MenuItem>
+                                <asp:MenuItem Text="Login" Value="Login"></asp:MenuItem>
+                                <asp:MenuItem Text="Pruduct Catalog" Value="Pruduct Catalog"></asp:MenuItem>
+                                <asp:MenuItem Text="Place an Order" Value="Place an Order"></asp:MenuItem>
+                                <asp:MenuItem Text="Contact Us" Value="Contact Us"></asp:MenuItem>
+                            </Items>
+                            <StaticHoverStyle BackColor="White" ForeColor="Red" />
+                            <StaticMenuItemStyle Font-Bold="True" Font-Size="Medium" HorizontalPadding="70px" />
+                            <StaticSelectedStyle BackColor="#66FFCC" BorderColor="#FF3300" BorderStyle="Outset" BorderWidth="1px" />
+                        </asp:Menu>
+                    </td>
+                </tr>
+                </table>  
+            <table>
+                <tr>
+                    <td colspan="3" class="auto-style4">
+                        <asp:ScriptManager ID="ScriptManager1" runat="server">
+                        </asp:ScriptManager>
+                        <asp:UpdatePanel ID="UpdatePanel1" runat="server">
+                            <ContentTemplate>  
+                                <asp:Timer ID="Timer1" runat="server" OnTick="Timer1_Tick" Interval="2000"></asp:Timer>
+                                <asp:Image ID="ImageesToDisplay" runat="server" Height="113px" Width="1195px" />
+                            </ContentTemplate>
+                        </asp:UpdatePanel>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+                    </asp:ContentPlaceHolder>
+                </tr>
+                <tr>
+                    <td colspan = "3">
+                        &copy; Online Shop | All rights reserved 2022
+                    </td>
+                </tr>
+            </table>            
+            
+        </div>
+    </form>
+</body>
+</html>
